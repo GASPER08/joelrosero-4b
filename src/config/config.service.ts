@@ -2,13 +2,10 @@ import { Injectable } from '@nestjs/common'
 import * as fs from 'fs'
 import { parse } from 'dotenv'
 
-
 @Injectable()
 export class ConfigService {
-private readonly envConfig: { [key:string]:string}
-
-
-constructor() {
+ private readonly envConfig: { [key:string]:string}
+ constructor() {
     const env = process.env.NODE_ENV || 'development'
     const envFilePath = `${__dirname}/../../.env.${env}`
     const existsPath = fs.existsSync(envFilePath)
